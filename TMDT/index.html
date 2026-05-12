@@ -1,0 +1,1431 @@
+# Full TikTok Shop & Social Commerce Website
+
+```html
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TikTok Shop & Social Commerce</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#0d0d0d;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    section{
+      padding:100px 0;
+      position:relative;
+    }
+
+    .navbar{
+      background:rgba(0,0,0,0.85);
+      backdrop-filter:blur(12px);
+    }
+
+    .navbar-brand{
+      color:#fff !important;
+      font-weight:700;
+      font-size:1.6rem;
+    }
+
+    .nav-link{
+      color:#ddd !important;
+      transition:0.3s;
+    }
+
+    .nav-link:hover{
+      color:#ff0050 !important;
+    }
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      background:
+      linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
+      url('https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?q=80&w=1600&auto=format&fit=crop') center/cover;
+    }
+
+    .hero h1{
+      font-size:4.5rem;
+      font-weight:700;
+    }
+
+    .hero span{
+      color:#ff0050;
+    }
+
+    .hero p{
+      margin-top:20px;
+      color:#ddd;
+      font-size:1.2rem;
+      max-width:800px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+
+    .btn-main{
+      margin-top:35px;
+      padding:15px 35px;
+      border:none;
+      border-radius:40px;
+      background:linear-gradient(45deg,#ff0050,#00f2ea);
+      color:white;
+      font-weight:600;
+      transition:0.4s;
+    }
+
+    .btn-main:hover{
+      transform:translateY(-5px);
+      box-shadow:0 10px 30px rgba(255,0,80,0.4);
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:70px;
+    }
+
+    .section-title h2{
+      font-size:3rem;
+      font-weight:700;
+    }
+
+    .section-title span{
+      color:#ff0050;
+    }
+
+    .section-title p{
+      color:#aaa;
+      margin-top:15px;
+    }
+
+    .glass-card{
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.1);
+      border-radius:24px;
+      padding:35px;
+      height:100%;
+      transition:0.4s;
+      backdrop-filter:blur(12px);
+    }
+
+    .glass-card:hover{
+      transform:translateY(-10px);
+      border-color:#ff0050;
+      box-shadow:0 10px 30px rgba(255,0,80,0.2);
+    }
+
+    .glass-card i{
+      font-size:2.7rem;
+      color:#ff0050;
+      margin-bottom:20px;
+    }
+
+    .timeline{
+      position:relative;
+      max-width:900px;
+      margin:auto;
+    }
+
+    .timeline::after{
+      content:'';
+      position:absolute;
+      width:4px;
+      background:#ff0050;
+      top:0;
+      bottom:0;
+      left:50%;
+      margin-left:-2px;
+    }
+
+    .timeline-item{
+      padding:20px 40px;
+      position:relative;
+      width:50%;
+    }
+
+    .timeline-item::after{
+      content:'';
+      position:absolute;
+      width:20px;
+      height:20px;
+      background:#00f2ea;
+      border-radius:50%;
+      top:35px;
+      right:-10px;
+      z-index:1;
+    }
+
+    .left{
+      left:0;
+    }
+
+    .right{
+      left:50%;
+    }
+
+    .right::after{
+      left:-10px;
+    }
+
+    .timeline-content{
+      background:#181818;
+      border-radius:20px;
+      padding:25px;
+    }
+
+    .stat-box{
+      background:linear-gradient(135deg,#151515,#202020);
+      border-radius:24px;
+      padding:40px;
+      text-align:center;
+      transition:0.4s;
+      height:100%;
+    }
+
+    .stat-box:hover{
+      transform:scale(1.05);
+    }
+
+    .stat-box h3{
+      font-size:3rem;
+      color:#00f2ea;
+      font-weight:700;
+    }
+
+    .process-step{
+      text-align:center;
+    }
+    .ecosystem-img{
+    width:100%;
+    height:500px;
+    object-fit:cover;
+    border-radius:24px;
+}
+  .revenue-img{
+    width:100%;
+    height:330px;
+    object-fit:cover;
+    border-radius:24px;
+}
+.customers-img{
+    width:100%;
+    height:330px;
+    object-fit:cover;
+    border-radius:24px;
+}
+.globaluser-img{
+    width:100%;
+    height:330px;
+    object-fit:cover;
+    border-radius:24px;
+}
+
+    .step-number{
+      width:80px;   
+      height:80px;
+      margin:auto;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(45deg,#ff0050,#00f2ea);
+      font-size:1.8rem;
+      font-weight:700;
+      margin-bottom:20px;
+    }
+
+    .footer{
+      background:#050505;
+      text-align:center;
+      padding:50px 20px;
+      border-top:1px solid rgba(255,255,255,0.1);
+    }
+
+    .footer h2{
+      color:#ff0050;
+      font-weight:700;
+    }
+
+    .badge-custom{
+      background:linear-gradient(45deg,#ff0050,#00f2ea);
+      border:none;
+      padding:10px 20px;
+      border-radius:30px;
+      font-size:0.9rem;
+    }
+
+    @media(max-width:768px){
+
+      .hero h1{
+        font-size:2.7rem;
+      }
+
+      .timeline::after{
+        left:20px;
+      }
+
+      .timeline-item{
+        width:100%;
+        padding-left:60px;
+        padding-right:20px;
+      }
+
+      .timeline-item::after{
+        left:10px;
+      }
+
+      .right{
+        left:0;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+
+      <a class="navbar-brand" href="#">
+        TikTok Shop
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="menu">
+
+        <ul class="navbar-nav ms-auto">
+
+          <li class="nav-item">
+            <a class="nav-link" href="#about">Giới thiệu</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#timeline">Lịch sử</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#social">Social Commerce</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#users">Người dùng</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#revenue">Doanh thu</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#ecosystem">Hệ sinh thái</a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- HERO -->
+
+<!-- NOTE:
+Để website đẹp hơn, hãy tạo thư mục images cùng cấp với index.html
+và thêm các ảnh sau:
+
+images/hero.jpg
+images/tiktok-history.jpg
+images/social-commerce.jpg
+images/global-users.jpg
+images/revenue.jpg
+images/customers.jpg
+images/ecosystem.jpg
+images/buyer-process.jpg
+images/seller-process.jpg
+
+Bạn có thể dùng ảnh từ Unsplash hoặc screenshot từ slide PowerPoint.
+-->
+
+
+  <section class="hero">
+
+    <div class="container">
+
+      <span class="badge badge-custom mb-4">
+        PRESENTATION WEBSITE
+      </span>
+
+      <h1>
+        TikTok Shop &
+        <span>Social Commerce</span>
+      </h1>
+
+      <p>
+        Tổng quan về TikTok Shop, Social Commerce,
+        hệ sinh thái thương mại điện tử tích hợp mạng xã hội
+        và xu hướng mua sắm hiện đại.
+      </p>
+
+      <a href="#about">
+        <button class="btn-main">
+          Bắt đầu khám phá
+        </button>
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>
+          Sự Ra Đời Của
+          <span>TikTok & TikTok Shop</span>
+        </h2>
+
+        <p>
+          Quá trình phát triển và mở rộng toàn cầu của TikTok Shop
+        </p>
+
+      </div>
+
+      <div class="row align-items-center g-5 mb-5">
+
+        <!-- <div class="col-lg-6">
+
+          <img
+            src="images/tiktok-history.jpg"
+            class="img-fluid rounded-4 shadow-lg"
+            alt="TikTok History"
+          >
+
+        </div> -->
+
+        <div class="col-lg-6">
+
+          <h3 class="mb-4">TikTok & TikTok Shop</h3>
+
+          <p class="text-secondary">
+            TikTok phát triển mạnh mẽ nhờ video ngắn, livestream
+            và mô hình thương mại điện tử tích hợp trực tiếp.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="row g-4">
+
+        <div class="col-lg-4">
+
+          <div class="glass-card">
+
+            <i class="bi bi-phone-fill"></i>
+
+            <h4>TikTok</h4>
+
+            <p>
+              TikTok là nền tảng video ngắn được phát triển bởi ByteDance,
+              nổi bật với nội dung giải trí, sáng tạo và thuật toán đề xuất mạnh mẽ.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-4">
+
+          <div class="glass-card">
+
+            <i class="bi bi-cart-fill"></i>
+
+            <h4>TikTok Shop</h4>
+
+            <p>
+              TikTok Shop là nền tảng bán hàng tích hợp trực tiếp trên TikTok,
+              cho phép người dùng mua hàng khi xem video hoặc livestream.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-4">
+
+          <div class="glass-card">
+
+            <i class="bi bi-lightning-charge-fill"></i>
+
+            <h4>Xu hướng mới</h4>
+
+            <p>
+              Kết hợp giữa giải trí và thương mại điện tử,
+              tạo ra trải nghiệm mua sắm nhanh chóng và trực quan.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- TIMELINE -->
+
+  <section id="timeline">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>
+          Lịch Sử
+          <span>Phát Triển</span>
+        </h2>
+
+      </div>
+
+      <div class="timeline">
+
+        <div class="timeline-item left">
+
+          <div class="timeline-content">
+
+            <h4>2016</h4>
+
+            <p>
+              ByteDance ra mắt Douyin tại Trung Quốc vào tháng 9/2016,
+              sau đó phát triển phiên bản quốc tế với tên gọi TikTok.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="timeline-item right">
+
+          <div class="timeline-content">
+
+            <h4>04/2021</h4>
+
+            <p>
+              TikTok chính thức giới thiệu TikTok Shop tại Anh Quốc,
+              thử nghiệm tính năng thương mại điện tử trong ứng dụng.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="timeline-item left">
+
+          <div class="timeline-content">
+
+            <h4>2022</h4>
+
+            <p>
+              TikTok Shop mở rộng mạnh tại Đông Nam Á và nhanh chóng
+              trở thành khu vực phát triển trọng điểm.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="timeline-item right">
+
+          <div class="timeline-content">
+
+            <h4>2024</h4>
+
+            <p>
+              Mở rộng quy mô toàn cầu và đầu tư vào hệ sinh thái
+              người bán - người sáng tạo - người mua.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SOCIAL COMMERCE -->
+   <section id="social">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>
+          <span>Social Commerce</span>
+        </h2>
+
+        <p>
+          Thương mại xã hội kết hợp giữa mạng xã hội và thương mại điện tử
+        </p>
+
+      </div>
+
+      <div class="row g-4">
+
+        <div class="col-lg-3 col-md-6">
+
+          <div class="glass-card text-center">
+
+            <i class="bi bi-instagram"></i>
+
+            <h5>Mạng xã hội</h5>
+
+            <p>
+              Tích hợp trên TikTok, Facebook, Instagram, Zalo.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+
+          <div class="glass-card text-center">
+
+            <i class="bi bi-bag-check-fill"></i>
+
+            <h5>Mua sắm trực tiếp</h5>
+
+            <p>
+              Người dùng mua hàng ngay trong ứng dụng.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+
+          <div class="glass-card text-center">
+
+            <i class="bi bi-chat-heart-fill"></i>
+
+            <h5>Tương tác</h5>
+
+            <p>
+              Tăng tương tác và trải nghiệm khách hàng.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+
+          <div class="glass-card text-center">
+
+            <i class="bi bi-currency-dollar"></i>
+
+            <h5>Chuyển đổi</h5>
+
+            <p>
+              Tăng tỷ lệ chuyển đổi và doanh thu bán hàng.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+<section class="pb-0">
+
+  <div class="container">
+
+    <div class="row align-items-center g-5">
+
+      <div class="col-lg-6">
+
+        <img
+          src="images/social-commerce.jpg"
+          class="img-fluid rounded-4 shadow-lg"
+          alt="Social Commerce"
+        >
+
+      </div>
+
+      <div class="col-lg-6">
+
+        <h2 class="mb-4">
+          Mô hình Social Commerce
+        </h2>
+
+        <p class="text-secondary fs-5">
+          Social Commerce kết hợp nội dung giải trí,
+          tương tác mạng xã hội và thương mại điện tử
+          nhằm tối ưu trải nghiệm mua sắm.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+  <!-- USERS -->
+<section id="users">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>
+          Quy Mô
+          <span>Người Dùng</span>
+        </h2>
+
+      </div>
+
+      <div class="row g-4">
+
+        <div class="col-lg-4">
+
+          <div class="stat-box">
+
+            <h3>1B+</h3>
+
+            <p>
+              Người dùng TikTok toàn cầu
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-4">
+
+          <div class="stat-box">
+
+            <h3>Top</h3>
+
+            <p>
+              Việt Nam thuộc nhóm thị trường tăng trưởng mạnh
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-4">
+
+          <div class="stat-box">
+
+            <h3>24/7</h3>
+
+            <p>
+              Hoạt động livestream và mua sắm liên tục
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+</section>
+
+
+<section class="pb-0">
+
+  <div class="container">
+
+    <div class="row align-items-center g-6">
+
+      <div class="col-lg-6 order-lg-2">
+
+        <img
+          src="images/global-users.jpg"
+          class="img-fluid rounded-4 shadow-lg globaluser-img"
+          alt="Global Users"
+        >
+
+      </div>
+
+      <div class="col-lg-6 order-lg-1">
+
+        <h2 class="mb-4">
+          Quy mô người dùng toàn cầu
+        </h2>
+
+        <p class="text-secondary fs-4">
+          TikTok hiện là một trong những nền tảng mạng xã hội
+          phát triển nhanh nhất thế giới.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+  <!-- REVENUE -->
+<section id="revenue">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>
+          Báo Cáo
+          <span>Doanh Thu</span>
+        </h2>
+
+      </div>
+
+      <div class="row g-4">
+
+        <div class="col-lg-4">
+
+          <div class="glass-card text-center">
+
+            <i class="bi bi-camera-video-fill"></i>
+
+            <h4>Livestream</h4>
+
+            <p>
+              Livestream bán hàng là nguồn doanh thu nổi bật trên TikTok Shop.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-4">
+
+          <div class="glass-card text-center">
+
+            <i class="bi bi-person-video3"></i>
+
+            <h4>Creator</h4>
+
+            <p>
+              Nhà sáng tạo nội dung góp phần thúc đẩy chuyển đổi mua hàng.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-4">
+
+          <div class="glass-card text-center">
+
+            <i class="bi bi-megaphone-fill"></i>
+
+            <h4>Affiliate</h4>
+
+            <p>
+              Tiếp thị liên kết trở thành mô hình kinh doanh phổ biến.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+<section class="pb-0">
+
+  <div class="container">
+
+    <div class="row align-items-center g-5">
+
+      <div class="col-lg-7">
+
+        <img
+          src="images/revenue.jpg"
+          class="img-fluid rounded-4 shadow-lg revenue-img"
+          alt="Revenue"
+        >
+
+      </div>
+
+      <div class="col-lg-4">
+
+        <h2 class="mb-4">
+          Doanh thu TikTok Shop
+        </h2>
+
+        <p class="text-secondary fs-5">
+          Livestream, affiliate marketing và creator economy
+          đóng vai trò quan trọng trong tăng trưởng doanh thu.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- REVENUE -->
+
+  
+  <!-- TARGET CUSTOMERS -->
+ <section>
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>
+          Đối Tượng
+          <span>Khách Hàng</span>
+        </h2>
+
+      </div>
+
+      <div class="row g-4">
+
+        <div class="col-md-3">
+
+          <div class="glass-card text-center">
+
+            <i class="bi bi-people-fill"></i>
+
+            <h5>Gen Z</h5>
+
+          </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+          <div class="glass-card text-center">
+
+            <i class="bi bi-phone"></i>
+
+            <h5>Người dùng trẻ</h5>
+
+          </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+          <div class="glass-card text-center">
+
+            <i class="bi bi-play-circle-fill"></i>
+
+            <h5>Người xem video</h5>
+
+          </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+          <div class="glass-card text-center">
+
+            <i class="bi bi-cart-fill"></i>
+
+            <h5>Mua sắm online</h5>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+<section class="pb-0">
+
+  <div class="container">
+
+    <div class="row align-items-center g-5">
+
+      <div class="col-lg-6 order-lg-2">
+
+        <img
+          src="images/customers.jpg"
+          class="img-fluid rounded-4 shadow-lg"
+          alt="Customers"
+        >
+
+      </div>
+
+      <div class="col-lg-6 order-lg-1">
+
+        <h2 class="mb-4">
+          Khách hàng mục tiêu
+        </h2>
+
+        <p class="text-secondary fs-5">
+          Gen Z và người dùng trẻ là nhóm khách hàng
+          chính của TikTok Shop.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+  <!-- ECOSYSTEM -->
+
+  <section id="ecosystem">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>
+          Hệ Sinh
+          <span>Thái Hỗ Trợ</span>
+        </h2>
+
+      </div>
+
+      <div class="row g-4">
+
+        <div class="col-lg-3 col-md-6">
+
+          <div class="glass-card text-center">
+
+            <i class="bi bi-shop"></i>
+
+            <h5>Người bán</h5>
+
+            <p>
+              Đăng sản phẩm và quản lý đơn hàng.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+
+          <div class="glass-card text-center">
+
+            <i class="bi bi-person-video3"></i>
+
+            <h5>Creator</h5>
+
+            <p>
+              Sáng tạo video quảng bá sản phẩm.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+
+          <div class="glass-card text-center">
+
+            <i class="bi bi-megaphone-fill"></i>
+
+            <h5>Affiliate</h5>
+
+            <p>
+              Kiếm thu nhập thông qua tiếp thị liên kết.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+
+          <div class="glass-card text-center">
+
+            <i class="bi bi-bag-heart-fill"></i>
+
+            <h5>Người mua</h5>
+
+            <p>
+              Mua sắm trực tiếp trên TikTok Shop.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+<section class="pb-0">
+
+  <div class="container">
+
+   <div class="row align-items-center g-5">
+
+  <div class="col-lg-6">
+
+    <img
+      src="images/ecosystem.jpg"
+      class="img-fluid rounded-4 shadow-lg ecosystem-img"
+      alt="Ecosystem"
+    >
+
+  </div>
+
+  <div class="col-lg-6">
+
+    <h2 class="mb-4">
+      Hệ sinh thái TikTok Shop
+    </h2>
+
+    <p class="text-secondary fs-5">
+      Người bán, creator, affiliate và người mua
+      tạo thành hệ sinh thái thương mại điện tử hoàn chỉnh.
+    </p>
+
+  </div>
+
+</div>
+  </div>
+
+</section>
+
+  <!-- BUYER PROCESS -->
+ <section>
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>
+          Quy Trình
+          <span>Dành Cho Người Mua</span>
+        </h2>
+
+      </div>
+
+      <div class="row g-5">
+
+        <div class="col-md-2">
+
+          <div class="process-step">
+
+            <div class="step-number">1</div>
+
+            <h5>Xem video</h5>
+
+          </div>
+
+        </div>
+
+        <div class="col-md-2">
+
+          <div class="process-step">
+
+            <div class="step-number">2</div>
+
+            <h5>Chọn sản phẩm</h5>
+
+          </div>
+
+        </div>
+
+        <div class="col-md-2">
+
+          <div class="process-step">
+
+            <div class="step-number">3</div>
+
+            <h5>Đặt hàng</h5>
+
+          </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+          <div class="process-step">
+
+            <div class="step-number">4</div>
+
+            <h5>Thanh toán</h5>
+
+          </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+          <div class="process-step">
+
+            <div class="step-number">5</div>
+
+            <h5>Nhận hàng</h5>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+</section>
+
+<section class="pb-0">
+
+  <div class="container">
+
+    <div class="row align-items-center g-5">
+
+      <div class="col-lg-6 order-lg-2">
+
+        <img
+          src="images/buyer-process.jpg"
+          class="img-fluid rounded-4 shadow-lg"
+          alt="Buyer Process"
+        >
+
+      </div>
+
+      <div class="col-lg-6 order-lg-1">
+
+        <h2 class="mb-4">
+          Trải nghiệm mua hàng
+        </h2>
+
+        <p class="text-secondary fs-5">
+          Người dùng có thể xem video,
+          chọn sản phẩm và thanh toán ngay trong ứng dụng.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+  <!-- SELLER PROCESS -->
+ <section>
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>
+          Quy Trình
+          <span>Đối Với Người Bán</span>
+        </h2>
+
+      </div>
+
+      <div class="row g-5">
+
+        <div class="col-md-2">
+
+          <div class="process-step">
+
+            <div class="step-number">1</div>
+
+            <h5>Đăng ký shop</h5>
+
+          </div>
+
+        </div>
+
+        <div class="col-md-2">
+
+          <div class="process-step">
+
+            <div class="step-number">2</div>
+
+            <h5>Đăng sản phẩm</h5>
+
+          </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+          <div class="process-step">
+
+            <div class="step-number">3</div>
+
+            <h5>Livestream / Video</h5>
+
+          </div>
+
+        </div>
+
+        <div class="col-md-2">
+
+          <div class="process-step">
+
+            <div class="step-number">4</div>
+
+            <h5>Xử lý đơn</h5>
+
+          </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+          <div class="process-step">
+
+            <div class="step-number">5</div>
+
+            <h5>Chăm sóc khách hàng</h5>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+<section class="pb-0">
+
+  <div class="container">
+
+    <div class="row align-items-center g-5">
+
+      <div class="col-lg-6">
+
+        <img
+          src="images/seller-process.jpg"
+          class="img-fluid rounded-4 shadow-lg"
+          alt="Seller Process"
+        >
+
+      </div>
+
+      <div class="col-lg-6">
+
+        <h2 class="mb-4">
+          Quy trình bán hàng
+        </h2>
+
+        <p class="text-secondary fs-5">
+          TikTok Shop hỗ trợ người bán từ đăng sản phẩm,
+          livestream đến xử lý đơn hàng.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+  <!-- THANK YOU -->
+
+  <footer class="footer">
+
+    <h2>THANK YOU</h2>
+
+    <p class="mt-3 text-secondary">
+      TikTok Shop & Social Commerce Presentation Website
+    </p>
+
+  </footer>
+
+  <!-- Bootstrap JS -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+```
+
+## Cách sử dụng
+
+1. Tạo file `index.html`
+2. Copy toàn bộ code vào file
+3. Mở bằng Chrome hoặc VS Code Live Server
+4. Có thể deploy lên GitHub Pages / Netlify / Vercel
+
+## Nội dung đã bao gồm đầy đủ các slide
+
+* Trang bìa
+* Sự ra đời của TikTok và TikTok Shop
+* Social Commerce
+* Quy mô người dùng toàn cầu & Việt Nam
+* Báo cáo doanh thu
+* Đối tượng khách hàng mục tiêu
+* Hệ sinh thái hỗ trợ
+* Quy trình dành cho người mua
+* Quy trình đối với người bán
+* Thank You
